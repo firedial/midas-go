@@ -1,7 +1,7 @@
 package controller
 
 import(
-    "github.com/firedial/go-midas/model"
+    "github.com/firedial/midas-go/model"
 )
 
 func AttributeGet(attribute_name string, queries map[string][]string) model.Attribute {

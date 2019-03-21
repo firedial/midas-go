@@ -1,7 +1,7 @@
 package model
 
 import (
-    "github.com/firedial/go-midas/db"
+    "github.com/firedial/midas-go/db"
 )
 
 type Balance struct {

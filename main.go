@@ -3,8 +3,8 @@ package main
 import (
     "github.com/gin-gonic/gin"
 
-    "github.com/firedial/go-midas/controller"
-    "github.com/firedial/go-midas/model"
+    "github.com/firedial/midas-go/controller"
+    "github.com/firedial/midas-go/model"
 
 )
 

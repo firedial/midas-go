@@ -1,7 +1,7 @@
 package controller
 
 import(
-    "github.com/firedial/go-midas/model"
+    "github.com/firedial/midas-go/model"
 )
 
 func BalanceGet(queries map[string][]string) model.Balance {
