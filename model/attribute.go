@@ -32,10 +32,10 @@ func GetAttribute(attribute_name string, id string) Attribute {
         &(attribute.Description),
         &(attribute.Group_id))
 
-  if err != nil {
-    panic(err.Error())
-  }
-  return attribute
+    if err != nil {
+        panic(err.Error())
+    }
+    return attribute
 }
 
 

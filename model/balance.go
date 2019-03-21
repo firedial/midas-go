@@ -43,10 +43,10 @@ func GetBalance(id string) Balance {
         &(balance.Place_id),
         &(balance.Date))
 
-  if err != nil {
-    panic(err.Error())
-  }
-  return balance
+    if err != nil {
+        panic(err.Error())
+    }
+    return balance
 }
 
 func InsertBalance(balance Balance) bool {
@@ -64,15 +64,15 @@ func InsertBalance(balance Balance) bool {
         ) VALUES 
         (?, ?, ?, ?, ?, ?)`)
 
-  if err != nil {
-    panic(err.Error())
-  }
-  defer stmt.Close()
+    if err != nil {
+        panic(err.Error())
+    }
+    defer stmt.Close()
 
-  _, err = stmt.Exec(balance.Amount, balance.Item, balance.Kind_id, balance.Purpose_id, balance.Place_id, balance.Date)
-  if err != nil {
-    panic(err.Error())
-  }
+    _, err = stmt.Exec(balance.Amount, balance.Item, balance.Kind_id, balance.Purpose_id, balance.Place_id, balance.Date)
+    if err != nil {
+        panic(err.Error())
+    }
 
-  return true
+    return true
 }
