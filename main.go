@@ -2,6 +2,7 @@ package main
 
 import (
     "github.com/gin-gonic/gin"
+    "github.com/gin-contrib/cors"
 
     "github.com/firedial/midas-go/controller"
     "github.com/firedial/midas-go/model"
@@ -10,6 +11,7 @@ import (
 
 func main() {
     r := gin.Default()
+    r.Use(cors.Default())
 
     api := r.Group("/api/v1")
     {
