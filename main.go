@@ -6,10 +6,16 @@ import (
 
     "github.com/firedial/midas-go/controller"
     "github.com/firedial/midas-go/model"
+    "github.com/firedial/midas-go/config"
 
 )
 
 func main() {
+
+    if config.IS_PRODUCTION {
+        gin.SetMode(gin.ReleaseMode)
+    }
+
     r := gin.Default()
     r.Use(cors.Default())
 
