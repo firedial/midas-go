@@ -2,6 +2,8 @@ package model
 
 import (
     "github.com/firedial/midas-go/db"
+    "github.com/firedial/midas-go/entity"
+    "github.com/firedial/midas-go/interactor"
 )
 
 type Balance struct {
@@ -14,7 +16,11 @@ type Balance struct {
     Date string `json:"date"`
 }
 
-func GetBalance(id string) Balance {
+func GetBalance(id string) entity.Balances {
+    return interactor.GetBalancea()
+}
+
+func aGetBalance(id string) Balance {
     var balance Balance
 
     db := db.Init();
