@@ -5,9 +5,10 @@ import (
     "github.com/gin-contrib/cors"
 
     "github.com/firedial/midas-go/controller"
-    "github.com/firedial/midas-go/model"
     "github.com/firedial/midas-go/config"
+    "github.com/firedial/midas-go/entity"
 
+    "github.com/firedial/midas-go/model"
 )
 
 func main() {
@@ -23,9 +24,9 @@ func main() {
     {
         api.GET("/balance/", func(c *gin.Context) { c.JSON(200, controller.BalanceGet(c.Request.URL.Query())) } )
         api.POST("/balance/", func(c *gin.Context) { 
-            var balance model.Balance
-            c.BindJSON(&balance)
-            c.JSON(200, controller.BalancePost(balance)) } )
+            var balances entity.Balances
+            c.BindJSON(&balances)
+            c.JSON(200, controller.BalancePost(balances)) } )
         api.POST("/move/", func(c *gin.Context) { 
             var move model.Move
             c.BindJSON(&move)

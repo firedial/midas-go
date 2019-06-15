@@ -1,17 +1,17 @@
 package controller
 
 import(
-    "github.com/firedial/midas-go/model"
     "github.com/firedial/midas-go/entity"
+    "github.com/firedial/midas-go/interactor"
 )
 
 func BalanceGet(queries map[string][]string) entity.Balances {
-    id := queries["id"][0]
-    balance := model.GetBalance(id)
-    return balance
+    //id := queries["id"][0]
+    balances, _ := interactor.GetBalance()
+    return balances
 }
 
-func BalancePost(balance model.Balance) model.Balance {
-    _ = model.InsertBalance(balance)
-    return balance 
+func BalancePost(balances entity.Balances) string {
+    rc := interactor.InsertBalances(balances)
+    return rc
 }

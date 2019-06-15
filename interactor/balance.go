@@ -6,9 +6,13 @@ import (
     "github.com/firedial/midas-go/dao"
 )
 
+var balanceRepository repository.BalanceRepository = &dao.MysqlBalanceRepository{}
 
-func GetBalancea() entity.Balances {
-    var balanceDao repository.BalanceRepository = &dao.MysqlBalanceRepository{}
-    balances, _ := balanceDao.FindAll();
-    return balances
+func GetBalance() (entity.Balances, error) {
+    return balanceRepository.FindAll()
+}
+
+func InsertBalances(balances entity.Balances) string {
+    _ = balanceRepository.SaveAll(balances);
+    return "aaa"
 }
