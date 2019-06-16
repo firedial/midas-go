@@ -24,9 +24,9 @@ func main() {
     {
         api.GET("/balance/", func(c *gin.Context) { c.JSON(200, controller.BalanceGet(c.Request.URL.Query())) } )
         api.POST("/balance/", func(c *gin.Context) { 
-            var balances entity.Balances
-            c.BindJSON(&balances)
-            c.JSON(200, controller.BalancePost(balances)) } )
+            var balance entity.Balance
+            c.BindJSON(&balance)
+            c.String(200, controller.BalancePost(balance)) } )
         api.POST("/move/", func(c *gin.Context) { 
             var move model.Move
             c.BindJSON(&move)

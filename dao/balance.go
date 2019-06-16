@@ -1,7 +1,6 @@
 package dao
 
 import (
-    "time"
     "database/sql"
 
     "github.com/firedial/midas-go/entity"
@@ -29,7 +28,7 @@ func (MysqlBalanceRepository) FindAll() (balances entity.Balances, err error) {
         var kind_id int
         var purpose_id int
         var place_id int
-        var date time.Time
+        var date string 
 
         err := rows.Scan(&balance_id, &amount, &item, &kind_id, &purpose_id, &place_id, &date)
         if err != nil {

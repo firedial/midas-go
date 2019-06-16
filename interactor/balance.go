@@ -12,7 +12,13 @@ func GetBalance() (entity.Balances, error) {
     return balanceRepository.FindAll()
 }
 
-func InsertBalances(balances entity.Balances) string {
-    _ = balanceRepository.SaveAll(balances);
-    return "aaa"
+func InsertBalances(balance entity.Balance) string {
+    balances := []entity.Balance{balance}
+
+    err := balanceRepository.SaveAll(balances);
+    if err != nil {
+        return "DB error!"
+    }
+
+    return "OK"
 }

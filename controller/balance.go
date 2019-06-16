@@ -11,7 +11,6 @@ func BalanceGet(queries map[string][]string) entity.Balances {
     return balances
 }
 
-func BalancePost(balances entity.Balances) string {
-    rc := interactor.InsertBalances(balances)
-    return rc
+func BalancePost(balance entity.Balance) string {
+    return interactor.InsertBalances(balance)
 }
