@@ -1,10 +1,9 @@
 package controller
 
 import(
-    "github.com/firedial/midas-go/model"
+    "github.com/firedial/midas-go/interactor"
 )
 
-func MovePost(move model.Move) model.Move {
-    _ = model.InsertMove(move)
-    return move 
+func MovePost(move interactor.Move) string {
+    return interactor.InsertMove(move)
 }

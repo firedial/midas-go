@@ -7,8 +7,7 @@ import (
     "github.com/firedial/midas-go/controller"
     "github.com/firedial/midas-go/config"
     "github.com/firedial/midas-go/entity"
-
-    "github.com/firedial/midas-go/model"
+    "github.com/firedial/midas-go/interactor"
 )
 
 func main() {
@@ -28,7 +27,7 @@ func main() {
             c.BindJSON(&balance)
             c.String(200, controller.BalancePost(balance)) } )
         api.POST("/move/", func(c *gin.Context) { 
-            var move model.Move
+            var move interactor.Move
             c.BindJSON(&move)
             c.JSON(200, controller.MovePost(move)) } )
         api.GET("/kind/", func(c *gin.Context) { c.JSON(200, controller.AttributeGet("kind")) } )
