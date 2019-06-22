@@ -1,15 +1,11 @@
 package controller
 
 import(
-    "github.com/firedial/midas-go/model"
+    "github.com/firedial/midas-go/interactor"
+    "github.com/firedial/midas-go/entity"
 )
 
-func AttributeGet(attribute_name string, queries map[string][]string) []model.Attribute {
-    ids, isExist := queries["id"]
-    id := "";
-    if isExist {
-        id = ids[0]
-    }
-    attribute := model.GetAttribute(attribute_name, id)
-    return attribute
+func AttributeGet(attribute_name string) entity.Attributes {
+    attributes, _ := interactor.GetAttribute(attribute_name)
+    return attributes
 }

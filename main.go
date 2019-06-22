@@ -31,9 +31,9 @@ func main() {
             var move model.Move
             c.BindJSON(&move)
             c.JSON(200, controller.MovePost(move)) } )
-        api.GET("/kind/", func(c *gin.Context) { c.JSON(200, controller.AttributeGet("kind", c.Request.URL.Query())) } )
-        api.GET("/purpose/", func(c *gin.Context) { c.JSON(200, controller.AttributeGet("purpose", c.Request.URL.Query())) } )
-        api.GET("/place/", func(c *gin.Context) { c.JSON(200, controller.AttributeGet("place", c.Request.URL.Query())) } )
+        api.GET("/kind/", func(c *gin.Context) { c.JSON(200, controller.AttributeGet("kind")) } )
+        api.GET("/purpose/", func(c *gin.Context) { c.JSON(200, controller.AttributeGet("purpose")) } )
+        api.GET("/place/", func(c *gin.Context) { c.JSON(200, controller.AttributeGet("place")) } )
     }
 
     r.Run()
