@@ -44,6 +44,9 @@ func (MysqlSumRepository) Find(attributeName string, groupByDate string, startDa
     case "purpose":
         groupByAttributeQuery = "purpose_id"
         attributeColumn = "purpose_id as id"
+    case "kind":
+        groupByAttributeQuery = "kind_id"
+        attributeColumn = "kind_id as id"
     default:
         groupByAttributeQuery = ""
         attributeColumn = "0 as id"
