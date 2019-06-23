@@ -3,8 +3,6 @@ package dao
 import (
     "strconv"
     
-    "fmt"
-
     "github.com/firedial/midas-go/entity"
     "github.com/firedial/midas-go/db"
 )
@@ -30,8 +28,8 @@ func (MysqlSumRepository) Find(attributeName string, groupByDate string, startDa
         groupByDateQuery = "DATE_FORMAT(date, '%Y')"
         dateColumn = "DATE_FORMAT(date, '%Y') as date"
     case "fiscal_year":
-        groupByDateQuery = "DATE_FORMAT(date - (INTERVAL 3 MONTH), '%Y')"
-        dateColumn = "DATE_FORMAT(date, '%Y') as date"
+        groupByDateQuery = "DATE_FORMAT(date - INTERVAL 3 MONTH, '%Y')"
+        dateColumn = "DATE_FORMAT(date - INTERVAL 3 MONTH, '%Y') as date"
     default:
         groupByDateQuery = ""
         dateColumn = "\"1000/1/1\" as date"
@@ -76,7 +74,6 @@ func (MysqlSumRepository) Find(attributeName string, groupByDate string, startDa
 
     query := "SELECT " + attributeColumn + ", " + dateColumn + ", " + "sum(amount) as sum FROM balance"
 
-    fmt.Print(query + " " + where + " " + groupBy)
     rows, err := db.Query(query + " " + where + " " + groupBy)
     defer rows.Close()
     if err != nil {
